@@ -13,3 +13,4 @@ deploy:
   bucket-path: "docker"
   on:
     branch: master
+  skip_cleanup: true
