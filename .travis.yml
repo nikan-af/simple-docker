@@ -1,6 +1,4 @@
-language: node_js
-node_js: node
-sudo: required
+language: generic
 services:
   - docker
 
@@ -9,10 +7,9 @@ deploy:
   region: "ap-south-1"
   app: "docker-simple"
   env: "Dockersimple-env"
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
   bucket-name: "simple-docker-bucket"
   bucket-path: "docker"
   on:
     branch: master
-  skip_cleanup: true
-  access_key_id: "$AWS_ACCESS_KEY"
-  secret_access_key: "$AWS_SECRET_KEY"

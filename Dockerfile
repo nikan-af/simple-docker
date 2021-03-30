@@ -1,17 +1,7 @@
-FROM node:alpine
+FROM nginx
 
-# Create app directory
-WORKDIR /usr/src/app
+WORKDIR '/app'
 
-# Install app dependencies
-COPY package.json .
-# For npm@5 or later, copy package-lock.json as well
+EXPOSE 80
 
-RUN npm install
-
-# Bundle app source
-COPY . .
-
-EXPOSE 8080
-
-CMD [ "npm", "start" ]
+COPY ./html/ /usr/share/nginx/html/
